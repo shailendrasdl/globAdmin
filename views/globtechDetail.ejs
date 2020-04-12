@@ -1,0 +1,61 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<!-- Automobile Body -->
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                <i class="fas fa-ship"></i> Globtech Details
+            </div>
+            <div class="col-md-2">
+                <a href="/globtech" class="btn btn-info btn-block" title="User">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Description </label>
+            <textarea name="description" rows="5" value="<%= globtechDetails.description %>" id="description" readonly class="form-control"><%= globtechDetails.description%></textarea>												
+        </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Address </label>
+            <textarea name="address" rows="5" value="<%= globtechDetails.address%>" id="address" readonly class="form-control"><%= globtechDetails.address%></textarea>												
+        </div>
+    </div>
+    <div class="form -group col-md-4">
+        <video class="video-fluid" controls>
+            <source src="<%= globtechDetails.base64_video %>" type="video/mp4">
+        </video>
+    </div>
+</div>
+<br>
+<h6> FEATURES </h6>
+<div class="row">
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Make</label>
+            <input name="type" value="<%= globtechDetails.make %>" type="text" id="make" readonly class="form-control number-only">												
+        </div>
+    </div>
+  
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Price</label>
+            <input name="type" value="<%= globtechDetails.price %>" type="text" id="price" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Location</label>
+            <input name="type" value="<%= globtechDetails.location %>" type="text" id="location" readonly class="form-control number-only">												
+        </div>
+    </div>  
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %> 

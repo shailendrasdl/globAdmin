@@ -1,0 +1,177 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<!-- Automobile Body -->
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                <i class="fas fa-ship"></i> Boats Details
+            </div>
+            <div class="col-md-2">
+                <a href="/boats" class="btn btn-info btn-block" title="User">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="form -group col-md-4">
+        <video class="video-fluid" controls>
+            <source src="<%= boatsDetails.base64_video %>" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Description </label>
+            <textarea name="description" rows="5" value="<%= boatsDetails.description %>" id="description" readonly class="form-control"><%= boatsDetails.description%></textarea>												
+        </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Address </label>
+            <textarea name="address" rows="5" value="<%= boatsDetails.address%>" id="address" readonly class="form-control"><%= boatsDetails.address%></textarea>												
+        </div>
+    </div>
+</div>
+<br>
+<h6> FEATURES </h6>
+<div class="row">
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Make</label>
+            <input name="type" value="<%= boatsDetails.make %>" type="text" id="make" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Model</label>
+            <input name="type" value="<%= boatsDetails.model %>" type="text" id="model" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Currency</label>
+            <input name="type" value="<%= boatsDetails.currency %>" type="text" id="currency" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Price</label>
+            <input name="type" value="<%= boatsDetails.price %>" type="text" id="price" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Year</label>
+            <input name="type" value="<%= boatsDetails.year %>" type="text" id="year" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Length</label>
+            <input name="type" value="<%= boatsDetails.length %>" type="text" id="length" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Width</label>
+            <input name="type" value="<%= boatsDetails.width %>" type="text" id="width" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Depth</label>
+            <input name="type" value="<%= boatsDetails.depth %>" type="text" id="depth" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <label> VAT payed </label><br>
+        <input type="radio" readonly checked="checked" name="vat_payed">&nbsp;&nbsp;<label><%= boatsDetails.vat_payed %></label><br>
+    </div>
+    <div class="form-group col-md-3">
+        <label> For </label><br>
+        <input type="radio" readonly checked="checked" name="for">&nbsp;&nbsp;<label><%= boatsDetails.for %></label><br>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Boat Type</label>
+            <input name="type" value="<%= boatsDetails.boat_type %>" type="text" id="boat_type" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Power</label>
+            <input name="type" value="<%= boatsDetails.power %>" type="text" id="power" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Fuel</label>
+            <input name="type" value="<%= boatsDetails.fuel %>" type="text" id="fuel" readonly class="form-control number-only">												
+        </div>
+    </div>
+    
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Water Capacity</label>
+            <input name="type" value="<%= boatsDetails.water_capacity %>" type="text" id="water_capacity" readonly class="form-control number-only">												
+        </div>
+    </div>
+    
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>No. of Bedroom</label>
+            <input name="type" value="<%= boatsDetails.no_of_bedrooms %>" type="text" id="no_of_bedrooms" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>No. of Bathroom </label>
+            <input name="type" value="<%= boatsDetails.no_of_bathrooms %>" type="text" id="no_of_bathrooms" readonly class="form-control number-only">												
+        </div>
+    </div>
+
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Engine hours</label>
+            <input name="type" value="<%= boatsDetails.engine_hours %>" type="text" id="engine_hours" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Type of Engine</label>
+            <input name="type" value="<%= boatsDetails.engine_type %>" type="text" id="engine_type" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>No. of Engines</label>
+            <input name="type" value="<%= boatsDetails.no_of_engines %>" type="text" id="no_of_engines" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Hull material</label>
+            <input name="type" value="<%= boatsDetails.hull_material %>" type="text" id="hull_material" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Color hull</label>
+            <input name="type" value="<%= boatsDetails.color_hull %>" type="text" id="color_hull" readonly class="form-control number-only">												
+        </div>
+    </div>
+    
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Location</label>
+            <input name="type" value="<%= boatsDetails.location %>" type="text" id="location" readonly class="form-control number-only">												
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %> 

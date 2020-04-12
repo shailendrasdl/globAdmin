@@ -1,0 +1,348 @@
+<!-- Header-->
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+
+<!-- <style type="css">
+  .category table.table td {
+  border-top: 0 !important;
+  border-bottom:0 !important;
+}
+.category table.table th {
+ border-top: 0 !important;
+  border-bottom:0 !important;
+}
+</style> -->
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Subscription Info</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <!-- <div class="row">
+                <div class="col-md-10">
+                    <i class="fas fa-table"></i> Plan
+                </div>
+                <div class="col-md-2">
+                    <a href="/#" class="btn btn-info btn-block" title="Silver">Silver</a>
+                
+                </div>
+            </div> -->
+
+            <div class="row clearfix">
+
+                <div class="col-md-10 offset-md-1">
+                    <div class="row clearfix">
+                <div class="col-md-4">
+                    <button class="btn btn-info btn-lg w-100" title="Silver">Silver</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-info btn-lg w-100" title="Gold">Gold</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-info btn-lg w-100" title="Platinum">Platinum</button>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row clearfix">
+                
+                <!-- <Select id="colorselector">
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="blue">Blue</option>
+                 </Select>
+                 <div id="red" class="colors" style="display:none"> red... </div>
+                 <div id="yellow" class="colors" style="display:none"> yellow.. </div>
+                 <div id="blue" class="colors" style="display:none"> blue.. </div> -->
+                
+                
+                 <div class="col-md-10 offset-md-1">
+                    <div class="row clearfix mt-3 mb-4">
+                    <div class="col-md-4">
+                        <Select id="categorySelector" class="form-control">
+                            <option value="0">Select category</option>
+                            <option value="automobile">Automobile</option>
+                            <option value="realestate">RealEstate</option>
+                            <option value="boats">Boats</option>
+                            <option value="globetech">Globetech</option>
+                            <option value="globepage">Globepage</option>
+                         </Select>
+                    </div>
+                    </div>
+                    <div id="automobile" class="category" style="display:none;">
+                    <div class="row clearfix">
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <th>Validity</th>
+                                <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                <td><input type="text" class="form-control" placeholder="Validity"></td>
+                              </tr>
+                              <tr>
+                                <th>Time Duration:</th>
+                                <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                              </tr>
+                              <tr>
+                                <th>Price/Video</th>
+                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                              </tr>
+                              <tr>
+                                <th>Price/10 Videos</th>
+                                <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                              </tr>
+                              <tr>
+                                <th>Price/20 Videos</th>
+                                <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                              </tr>
+                              <tr>
+                                <th>Price/50 Videos</th>
+                                <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                              </tr>
+                              <tr>
+                                <th></th>
+                                <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                    </div>
+                        <div id="realestate" class="category" style="display:none;">
+                            <div class="row clearfix">
+                                <table class="table">
+                                    <tbody>
+                                      <tr>
+                                        <th>Validity</th>
+                                        <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Time Duration:</th>
+                                        <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                        <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                        <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/Video</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/10 Videos</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/20 Videos</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/50 Videos</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                      </tr>
+                                      <tr>
+                                        <th></th>
+                                        <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                        <div id="boats" class="category" style="display:none;">
+                            <div class="row clearfix">
+                                <table class="table">
+                                    <tbody>
+                                      <tr>
+                                        <th>Validity</th>
+                                        <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Time Duration:</th>
+                                        <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                        <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                        <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                      </tr>
+                                      <tr>
+                                        <tr>
+                                            <th>Price/Video</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                          </tr>
+                                        <th>Price/10 Videos</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/20 Videos</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/50 Videos</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                      </tr>
+                                      <tr>
+                                        <th>Price/Post Validity</th>
+                                        <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                        <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                            <div id="globetech" class="category" style="display:none;">
+                                <div class="row clearfix">
+                                    <table class="table">
+                                        <tbody>
+                                          <tr>
+                                            <th>Validity</th>
+                                            <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Time Duration:</th>
+                                            <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                            <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                            <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                          </tr>
+                                          <tr>
+                                            <tr>
+                                                <th>Price/Video</th>
+                                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                              </tr>
+                                            <th>Price/10 Videos</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Price/20 Videos</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Price/50 Videos</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Price/Post Validity</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                            <div id="globepage" class="category" style="display:none;">
+                                <div class="row clearfix">
+                                    <table class="table">
+                                        <tbody>
+                                          <tr>
+                                            <th>Validity</th>
+                                            <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Validity"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Time Duration:</th>
+                                            <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                            <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                            <td><input type="text" class="form-control" placeholder="Time limit"></td>
+                                          </tr>
+                                          <tr>
+                                            <tr>
+                                                <th>Price/Video</th>
+                                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                                <td><input type="text" class="form-control" placeholder="Price/Video"></td>
+                                              </tr>
+                                            <th>Price/10 Videos</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/10 videos"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Price/20 Videos</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/20 Videos"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Price/50 Videos</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/50 Videos"></td>
+                                          </tr>
+                                          <tr>
+                                            <th>Price/Post Validity</th>
+                                            <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                            <td><input type="text" class="form-control" placeholder="Price/Post validity"></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+Under development !!
+
+
+<!-- Footer -->
+<% include templates/footer.ejs %>   
+<script>
+ $(function() {
+        $('#categorySelector').change(function(){
+            $('.category').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
+</script> 

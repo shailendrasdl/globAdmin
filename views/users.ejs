@@ -1,0 +1,175 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+	      
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/">Dashboard</a>
+				</li>
+				<li class="breadcrumb-item active">Users Account</li>
+			</ol>
+
+			<div class="card mb-3">
+				<div class="card-header">
+					<div class="row">
+						<div class="col-md-7">
+							<i class="fas fa-table"></i> Users Management
+						</div>
+						<div class="col-md-3">							
+							<input type="text" placeholder="Search" onkeyup="get_userlist()" class="form-control emailfind">
+						</div>
+						<div class="col-md-2">
+							<a href="/adduser" class="btn btn-info btn-block" title="User">Add New</a>
+						</div>
+					</div>	
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">						
+						<table class="table mt-2" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th width="10%">Image</th>
+									<th>Username</th>
+									<th>Email</th>
+									<th>Referred by</th>
+									<th width="10%">Details</th>
+									<th width="10%">2FA</th>
+									<th width="10%">Action</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th width="10%">Image</th>
+									<th>Username</th>
+									<th>Email</th>
+									<th>Referred by</th>
+									<th width="10%">Details</th>
+									<th width="10%">2FA</th>
+									<th width="10%">Action</th>
+								</tr>
+							</tfoot>
+							<tbody id="showuser">
+								<%
+									if(users_list != '')
+									{
+										var userList_arr = users_list;
+										for(var i=0; i < users_list.length; i++)
+										{
+											%>
+												<tr>
+													<td><img src="/images/img.png" width="50px" height="50px"></td>
+													<td><%= users_list[i].username %></td>													
+													<td><%= users_list[i].email %></td>	
+													<td>
+													<%
+														var j = 0;
+														for(j; j < userList_arr.length; j++)
+														{
+															if(users_list[i].user_referenced_code == userList_arr[j].user_referral_code)
+															{
+																%>
+																	<%= userList_arr[j].username %>
+																<%
+															}
+														}														
+													%>
+													<td>
+														<a href="/userDetails/<%= users_list[i]._id %>">Details</a>
+													</td>
+													</td>
+													<td>
+														<%
+															if(users_list[i].sign_in == true)
+															{
+																%>
+																	On
+																<%
+															}
+															else
+															{
+																%>
+																	Off
+																<%
+															}
+														%>
+													</td>
+													<td>
+														<a href="/edituser/<%= users_list[i]._id %>">
+															<i class="fas fa-edit text-info"></i>
+														</a>
+														&nbsp;														
+														<i class="fas fa-trash text-danger" onClick="removeDetails('removeuser','<%= users_list[i]._id %>')" style="cursor:pointer"></i>
+													</td>
+												</tr>
+											<%	
+										}
+									}
+								%>
+							</tbody>
+						</table>
+					</div>	
+					<div class="users-pagination">
+						<div class="pagination">
+							<nav aria-label="Page navigation example">
+								<% if (pages > 0) { %>
+									<ul class="pagination justify-content-center">
+										<% if (currentPage == 1) { %>
+											<li class="page-item disabled"><a class="page-link">First</a>  </li>
+										<% } else { %>
+											<li class="page-item"><a href="/users/1" class="page-link">First</a>   </li>
+										<% } %>
+										<% var i = (Number(currentPage) > 5 ? Number(currentPage) - 4 : 1) %>
+										<% if (i !== 1) { %>
+											<li class="page-item"><a class="page-link">...</a>   </li>
+										<% } %>
+										<% for (; i <= (Number(currentPage) + 4) && i <= pages; i++) { %>
+											<% if (i == currentPage) { %>
+												<li class="page-item"><a class="page-link"><%= i %></a>   </li>
+											<% } else { %>
+												<li class="page-item"><a href="/users/<%= i %>" class="page-link"><%= i %></a>   </li>
+											<% } %>
+											<% if (i == Number(currentPage) + 4 && i < pages) { %>
+												<li class="page-item"><a class="page-link">...</a>   </li>
+											<% } %>
+										<% } %>
+										<% if (currentPage == pages) { %>
+											<li class="page-item"><a class="page-link">Last</a> </li>
+										<% } else { %>
+											<li class="page-item"><a href="/users/<%= pages %>" class="page-link">Last</a></li>
+										<% } %>
+									</ul>
+								<% } %>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+        </div>
+        <!-- /.container-fluid -->
+	<!-- Footer -->
+	<script>
+		/* Search by email */
+		function get_userlist()
+		{ 
+			$('#showuser').html('<tr><td colspan="6" class="text-center"><br><i>Please Wait....</i><br><br><br></td></tr>');
+			var email = $('.emailfind').val();
+			$.ajax({
+				url: '/userslist',
+				method: 'POST',
+				data: {id: email}		
+			}).done(function(res) {	
+				if(res)
+				{
+					$('#showuser').html(res);
+				}
+				else
+				{
+					$('#showuser').html('<tr><td colspan="6" class="text-center"><br><i>Not found</i><br><br><br></td></tr>');
+				}
+			});			
+		}
+	</script>
+	<% include templates/footer.ejs %>
+	<!--// -->           

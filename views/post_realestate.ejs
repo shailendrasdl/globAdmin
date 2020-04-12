@@ -1,0 +1,279 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">RealEstate</li>
+    </ol>
+    <h3 class="box-title">Add RealEstate details</h3> 
+    <form action="/post_realestate" method="post" enctype="multipart/form-data">
+        <div class="row clearfix">
+            <div class="col-md-9">
+                <div class="pro-section">
+                    <h6 class="user-title">Content</h6>
+                    <div class="user-body">   
+                        <div class="row clearfix">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><h6>Category</h6></label>
+                                    <select name="category" class="form-control">
+                                        <option value="0">Select</option>
+                                        <option>Realestate</option>
+                                        <option>Automobile</option>
+                                        <option>Boats</option>
+                                        <option>Globtech</option>
+                                        <option>Globpage</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label><h6>Name</h6></label>
+                                    <input type="text" name="name" id="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label><h6>Address</h6></label>
+                                    <textarea class="form-control" rows="4" name="address"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label><h6>Keywords</h6></label>
+                                    <input type="text" name="keywords" id="keywords" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><h6>Email</h6></label>
+                                    <input type="text" name="email" id="email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label><h6>Mobile</h6></label>
+                                    <input type="text" name="mobile" id="mobile" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label><h6>Description</h6></label>
+                                    <textarea class="form-control" rows="4" name="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-section">
+                    <h6 class="user-title">Features</h6>
+                    <div class="user-body">
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Type</h6></label>
+                                    <input type="text" name="type" id="type" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Purpose</h6></label>
+                                    <select name="purpose" class="form-control">
+                                        <option value="">-- Select --</option>
+                                        <%
+                                            if(purpose_result.length > 0)
+                                            {
+                                                purpose_result.forEach(function(result)
+                                                {
+                                                    %>
+                                                        <option value="<%= result.purpose %>"> <%= result.purpose %> </option>
+                                                    <%
+                                                }) 
+                                            }
+                                        %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Time of avaliability</h6></label>
+                                    <input type="text" name="avaliability" id="avaliability" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Type of space</h6></label>
+                                    <select name="type_of_space" class="form-control">
+                                        <option value="">-- Select --</option>
+                                        <%
+                                            if(space_result.length > 0)
+                                            {
+                                                space_result.forEach(function(result)
+                                                {
+                                                    %>
+                                                        <option value="<%= result.name %>"> <%= result.name %> </option>
+                                                    <%
+                                                }) 
+                                            }
+                                        %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Square feet</h6></label> 
+                                <input type="text" name="square_feet" id="square_feet" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Location</h6></label>
+                                    <input type="text" name="location" id="location" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>No of bathrooms</h6></label>
+                                    <input type="text" name="no_of_bathrooms" id="no_of_bathrooms" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>No of bedrooms</h6></label>
+                                    <input type="text" name="no_of_bedrooms" id="no_of_bedrooms" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Currency</h6></label>
+                                    <input type="text" name="currency" id="currency" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Price</h6></label>
+                                    <input type="text" name="price" id="price" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Rent price</h6></label>
+                                    <input type="text" name="rent_price" id="rent_price" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Monthly charges</h6></label>
+                                    <input type="text" name="monthly_charges" id="monthly_charges" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label><h6>Level</h6></label>
+                                    <input type="text" name="level" id="level" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><h6>Amenities</h6></label>
+                                    <textarea type="text" class="form-control" name="amenities" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="pro-section">
+                    <h6 class="user-title">Image</h6>
+                    <div class="user-body">
+                        <div class=" upload_section">
+                            <img src="/images/up_image.jpg" class="img-fluid">
+                            <div class="upload_button">
+                                <div class="vfile">
+                                    <div class="text-center">
+                                        <input type="file" name="video" id="video" class="inputfile inputfile-1">
+                                        <label for="video"><i class="fa fa-upload"></i>&nbsp;&nbsp;<span>Upload Video</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-section">
+                    <h6 class="user-title">Residential or holiday</h6>
+                    <div class="user-body">
+                        <div class="form-group">
+                            <input type="radio" name="resedential">&nbsp;&nbsp;<label>Resedential</label><br>
+                            <input type="radio" name="resedential">&nbsp;&nbsp;<label>Holiday</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-section">
+                    <h6 class="user-title">Condition</h6>
+                    <div class="user-body">
+                        <div class="form-group">
+                            <input type="radio" name="condition">&nbsp;&nbsp;<label>Used</label><br>
+                            <input type="radio" name="condition">&nbsp;&nbsp;<label>New</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-section">
+                    <h6 class="user-title">Garage included</h6>
+                    <div class="user-body">
+                        <div class="form-group">
+                            <input type="radio" name="garage_included">&nbsp;&nbsp;<label>Yes</label><br>
+                            <input type="radio" name="garage_included">&nbsp;&nbsp;<label>No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-section">
+                    <h6 class="user-title">Lift</h6>
+                    <div class="user-body">
+                        <div class="form-group">
+                            <input type="radio" name="lift">&nbsp;&nbsp;<label>Yes</label><br>
+                            <input type="radio" name="lift">&nbsp;&nbsp;<label>No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix form-group ">
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm w-100" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+            </div>
+            <div class="col-md-2">
+                <a href="/realestate" class="btn btn-warning btn-sm w-100"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %> 
+
+<script>
+    //To upload a file
+( function ( document, window, index )
+{
+  var inputs = document.querySelectorAll( '.inputfile' );
+  Array.prototype.forEach.call( inputs, function( input )
+  {
+    var label  = input.nextElementSibling,
+      labelVal = label.innerHTML;
+
+    input.addEventListener( 'change', function( e )
+    {
+      var fileName = '';
+      if( this.files && this.files.length > 1 )
+        fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+      else
+        fileName = e.target.value.split( '\\' ).pop();
+
+      if( fileName )
+        label.querySelector( 'span' ).innerHTML = fileName;
+      else
+        label.innerHTML = labelVal;
+    });
+
+    // Firefox bug fix
+    input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+    input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+  });
+}( document, window, 0 ));
+</script>

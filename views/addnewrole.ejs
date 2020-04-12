@@ -1,0 +1,37 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/dashboard">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Role Manager</li>
+        </ol>
+        <h3>Add new role</h3>
+         <div class="row clearfix">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <form action="/addnewrole" method="post">     
+                <div class="userBody">
+                    <h6>Role Content</h6>
+                    <div class="form-group ">
+                        <label>Name<span class="text-danger">*</span></label>
+                        <input type="text" name="rolename" id="rolename"  required class="form-control" >
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group text-right mt-4">
+                    <div class="input text">
+                        <button class="btn btn-primary btn-sm col-md-3" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                        <a href="/userrole" class="btn btn-warning btn-sm col-md-3"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->	
+<% include templates/footer.ejs %>

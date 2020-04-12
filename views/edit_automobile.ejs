@@ -1,0 +1,153 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Automobile edit</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Edit Automobile details </h3> 
+                </div>
+                <form action="/editAutomobile/<%= editautomobile._id %>" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>Keywords</label>
+                            <input type="text" name="keywords" id="keywords" value="<%= editautomobile.keywords %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Description </label>
+                            <textarea name="description" rows="4" value="<%= editautomobile.description %>" id="description" class="form-control"><%= editautomobile.description %></textarea>												
+                         </div>
+ 
+                        <div class="form-group col-md-4">
+                            <label>Address </label>
+                            <textarea name="address" rows="4" value="<%= editautomobile.address %>" id="address" class="form-control"><%= editautomobile.address %></textarea>												
+                        </div>
+                    </div>
+
+                    <h6>FEATURES</h6>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Make</label>
+                            <input type="text" name="make" id="make" value="<%= editautomobile.make %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Model</label>
+                            <input type="text" name="model" id="model" value="<%= editautomobile.model %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Variant</label>
+                            <input type="text" name="variant" id="variant" value="<%= editautomobile.variant %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Engine</label>
+                            <input type="text" name="engine" id="engine" value="<%= editautomobile.engine %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Horse Power</label>
+                            <input type="text" name="horse_power" id="horse_power" value="<%= editautomobile.horse_power %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Mileage</label>
+                            <input type="text" name="mileage" id="mileage" value="<%= editautomobile.mileage %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Fuel</label>
+                            <input type="text" name="fuel" id="fuel" value="<%= editautomobile.fuel %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Emission class</label>
+                            <input type="text" name="emission_class" id="emission_class" value="<%= editautomobile.emission_class %>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Seller</label><br>
+                            <input type="radio" name="seller">&nbsp;&nbsp;<label>Company</label><br>
+                            <input type="radio" name="seller">&nbsp;&nbsp;<label>Individual</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Condition</label><br>
+                            <input type="radio" name="condition">&nbsp;&nbsp;<label>Used</label><br>
+                            <input type="radio" name="condition">&nbsp;&nbsp;<label>New</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Gear type</label><br>
+                            <input type="radio" name="gear_type">&nbsp;&nbsp;<label>Automatic</label><br>
+                            <input type="radio" name="gear_type">&nbsp;&nbsp;<label>Manual</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>1st registration year</label>
+                            <input type="text" name="registration_year" id="registration_year" value="<%= editautomobile.registration_year %>" class="form-control">
+                        </div>
+                    </div>
+                    <h6> PAYMENT </h6>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Currency</label>
+                            <input type="text" name="currency" id="currency" value="<%= editautomobile.currency %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Price</label>
+                            <input type="text" name="price" id="price" value="<%= editautomobile.price %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Warranty</label>
+                            <input type="text" name="warranty" id="warranty" value="<%= editautomobile.warranty %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Location</label>
+                            <input type="text" name="location" id="location" value="<%= editautomobile.location %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Color</label>
+                            <input type="text" name="color" id="color" value="<%= editautomobile.color %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Interior seats</label>
+                            <input type="text" name="interior_seats" id="interior_seats" value="<%= editautomobile.interior_seats %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Doors</label>
+                            <input type="text" name="doors" id="doors" value="<%= editautomobile.doors %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Seats</label>
+                            <input type="text" name="seats" id="seats" value="<%= editautomobile.seats %>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Equipment description </label>
+                            <textarea name="equipment_description" rows="4" value="<%= editautomobile.equipment_description %>" id="description" class="form-control"><%= editautomobile.equipment_description %></textarea>												
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Accessories </label>
+                            <textarea name="accessories" rows="4" value="<%= editautomobile.accessories %>" id="accessories" class="form-control"><%= editautomobile.accessories %></textarea>												
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <div class="input text">
+                                <button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                                <a href="/automobile" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %> 

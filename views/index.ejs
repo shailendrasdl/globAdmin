@@ -1,0 +1,109 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!--// -->
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<!--// --> 
+    <div class="container-fluid">
+		<!-- Breadcrumbs-->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="#">Dashboard</a>
+			</li>
+			<li class="breadcrumb-item active">Overview</li>
+		</ol>			
+		<!-- Icon Cards-->
+		<div class="row dashboardSection">
+			<div class="col-md-12">
+				<div class="row mb-5">
+					<div class="col-md-2">
+						<div class="pro-title">
+						<h4>4562</h4>
+						</div>
+						<small>No: of Ad's Posted</small>
+					</div>
+					<div class="col-md-2">
+						<div class="pro-title">
+					
+						<h4>4562</h4>
+						</div>
+						<small>No: of Ad's Online</small>
+					</div>
+					<div class="col-md-2">
+						<div class="pro-title">
+							<!-- <h4><%= user_cont %></h4> -->
+							<h4><%= registered_users %></h4>
+						</div>
+						<small>Registered Users</small>
+					</div>
+					<div class="col-md-2">
+						<div class="pro-title">
+						<h4>1035</h4>
+						</div>
+						<small>Registered Sellers</small>
+					</div>
+					<div class="col-md-2">
+						<div class="pro-title">
+							<h4><h4><%= Professional_count %></h4></h4>
+						</div>
+						<small>No: of Professional Users</small>
+					</div>
+					<div class="col-md-2">
+						<div class="pro-title">
+							<h4><h4><%= individual_count %></h4></h4>
+							<!-- <h4><h4><%= individual_count %></h4></h4> -->
+						</div>
+						<small>No: of Individual Users</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 offset-md-2">
+				<section class="graphSection">
+					<a id="" class="btn custom_btn">Daily</a>
+					<a class="btn custom_btn">Weekly</a>
+					<a href="#" class="btn custom_btn">Monthly</a>
+					<a href="#" class="btn custom_btn">Yearly</a>
+				</section>
+				<canvas id="myChart" width="400" height="150"></canvas>
+			</div>
+		</div>
+	</div>
+<% include templates/footer.ejs %>
+
+<script>
+	var ctx = document.getElementById('myChart').getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['Real Estate', 'Automobiles', 'Boat', 'Globpages', 'Globtech'],
+			datasets: [{
+				label: '# status report',
+				data: [4, 6, 8, 7, 2, 5],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
+		}
+	});
+</script>

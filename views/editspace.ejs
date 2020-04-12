@@ -1,0 +1,48 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Space Attributes Edit</li> 
+    </ol>
+    <div class="box-header">
+        <h3 class="box-title mb-4">Edit Space details</h3> 
+    </div>
+    <form action="/editSpace/<%= edit_space._id %>" method="post">
+        <div class="row clearfix">
+            <div class="col-md-8 offset-md-2">
+                <div class="userBody mt-4">
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name<span class="text-danger">*</span></label>
+                                <input type="text" name="name" value="<%= edit_space.name %>" required id="name" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status" class="form-control">
+                                    <option value="true" <%= (edit_space.status == true) ? "selected" : "" %>>Active</option>
+                                    <option value="false" <%= (edit_space.status == false) ? "selected" : "" %>>Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="input text">
+                            <button class="btn btn-primary btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                            <a href="/spaceAttributes" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

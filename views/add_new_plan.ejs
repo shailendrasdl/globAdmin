@@ -1,0 +1,66 @@
+<!-- Header-->
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active"> Subscription Info </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="box-header">
+                <h3 class="box-title">Add Plans Details</h3>
+            </div>
+            <form action="/add_new_plan" method="post" class="mt-4 mb-4">
+                <div class="pro-section">
+                <h6 class="user-title">Plan info</h6>
+                    <div class="user-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label>Select Plan Name<span class="text-danger">*</span></label>
+                                <select name="plan_name" class="form-control">
+                                    <option value=""> -- Select Plan -- </option>
+                                    <option value="Silver">Silver</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Platinum">Platinum</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Select Plan Validity<span class="text-danger">*</span></label>
+                                <select name="validity" class="form-control">
+                                    <option value=""> -- Select validity -- </option>
+                                    <option value="10">10 Days</option>
+                                    <option value="20">20 Days</option>
+                                    <option value="30">30 Days</option>
+                                </select>
+                            </div>
+                              <div class="form-group col-md-4">
+                                <label>Plan_Price<span class="text-danger">*</span></label>
+                                <input type="text" name="price" id="price" required class="form-control">
+                              </div>
+
+                              <div class="form-group col-md-4">
+                                <label>Post Validity<span class="text-danger">*</span></label>
+                                <input type="text" name="post_validity" id="post_validity" required class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <button class="btn btn-primary btn-sm w-100" type="submit" ><i class="fas fa-fw fa-save"></i> Save Plan</button>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <a href="/subscription" class="btn btn-warning btn-sm w-100"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %>  

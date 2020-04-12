@@ -1,0 +1,172 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <!-- <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Advertiser</li>
+    </ol> -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-10">
+                    <i class="fa fa-building"></i> Real Estate Detail
+                </div>
+                <div class="col-md-2">
+                    <a href="/realestate" class="btn btn-info btn-block" title="User">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="row clearfix"> 
+       <div class="form -group col-md-4">
+            <video class="video-fluid" controls>
+                <source src="<%= realestate_arr.video_url %>" type="video/mp4">
+            </video>
+        </div>
+        <!-- <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Keywords</label>
+                <input name="keywords" value="<%= realestate_arr.keywords %>" type="text" id="keywords" readonly class="form-control number-only">												
+            </div>
+        </div> -->
+        <div class="form-group col-md-4">
+            <div class="input text">
+                <label>Description </label>
+                <textarea name="description" rows="4" value="<%= realestate_arr.description%>" id="description" readonly class="form-control"><%= realestate_arr.description%></textarea>												
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <div class="input text">
+                <label>Address </label>
+                <textarea name="address" rows="4" value="<%= realestate_arr.address%>" id="address" readonly class="form-control"><%= realestate_arr.address%></textarea>												
+            </div>
+        </div>
+    </div>
+
+    <h6> FEATURES </h6>
+
+    <div class="row">
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Type</label>
+                <input name="type" value="<%= realestate_arr.type %>" type="text" id="type" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Purpose</label>
+                <input name="purpose" value="<%= realestate_arr.purpose %>" type="text" id="purpose" readonly class="form-control number-only">												
+            </div>
+        </div>
+      
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Time of avaliability</label>
+                <input name="time_of_avaliability" value="<%= realestate_arr.time_of_avaliability %>" type="text" id="time_of_avaliability" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Type of space</label>
+                <input name="type_of_space" value="<%= realestate_arr.type_of_space %>" type="text" id="type_of_space" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Square feet</label>
+                <input name="square_feet" value="<%= realestate_arr.square_feet %>" type="text" id="square_feet" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Location</label>
+                <input name="location" value="<%= realestate_arr.location %>" type="text" id="location" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>No of bathrooms</label>
+                <input name="no_of_bathrooms" value="<%= realestate_arr.no_of_bathrooms %>" type="text" id="no_of_bathrooms" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>No of bedrooms</label>
+                <input name="no_of_bedrooms" value="<%= realestate_arr.no_of_bedrooms %>" type="text" id="no_of_bedrooms" readonly class="form-control number-only">												
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label>Resedential or holiday</label><br>
+            <input type="radio" readonly checked="checked" name="resedential">&nbsp;&nbsp;<label><%= realestate_arr.residential_or_holiday %></label><br>
+        </div>
+        <div class="form-group col-md-3">
+            <label> Condition </label><br>
+            <input type="radio" readonly checked="checked" name="condition">&nbsp;&nbsp;<label><%= realestate_arr.condition %></label><br>
+        </div>
+        <div class="form-group col-md-3">
+            <label> Garage included </label><br>
+            <input type="radio" checked="checked" name="garage_included">&nbsp;&nbsp;<label><%= realestate_arr.garage_included %></label><br>
+        </div>
+        <div class="form-group col-md-3">
+            <label> Lift </label><br>
+            <input type="radio" checked="checked" name="lift">&nbsp;&nbsp;<label><%= realestate_arr.lift %></label><br>
+        </div>
+    </div>
+
+    <h6> PAYMENT </h6>
+    
+    <div class="row">
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Currency </label>
+                <input name="currency" value="<%= realestate_arr.currency %>" type="text" id="currency" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Price </label>
+                <input name="price" value="<%= realestate_arr.price%>" type="text" id="price" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Rent price </label>
+                <input name="rent_price" value="<%= realestate_arr.rent_price %>" type="text" id="rent_price" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Monthly charges </label>
+                <input name="monthly_charges" value="<%= realestate_arr.monthly_charges %>" type="text" id="monthly_charges" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input text">
+                <label>Level </label>
+                <input name="level" value="<%= realestate_arr.level %>" type="text" id="level" readonly class="form-control number-only">												
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <div class="input text">
+                <label>Amenities </label>
+                <textarea name="amenities" value="<%= realestate_arr.amenities %>" id="amenities" readonly class="form-control"><%= realestate_arr.amenities %></textarea>												
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<% include templates/footer %>
+<script>
+   $(':radio').click(function(){
+        return false;
+    }); 
+</script>

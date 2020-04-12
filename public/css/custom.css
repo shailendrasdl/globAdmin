@@ -1,0 +1,83 @@
+body{background:#f4f6f8;}
+.bgimg{background-image:url('../images/bgimg2.png');background-repeat: no-repeat;background-size: inherit;}
+.signupForm{margin-top:120px;margin-bottom:100px;}
+.signupForm .form-control{border-radius:0;color:#fff;background-color:transparent !important;border-bottom:1px solid #fff !important;border-top:none;border-left: none;border-right:none;}
+.signupForm .fm_radio{font-size:15px;}
+.signupForm input::placeholder { color: #ffffff; }
+.signupForm .form-control:focus{
+  outline: none;
+  box-shadow:none;
+}
+.personal_form .form-group{margin-bottom:30px;}
+.personal_form .form-control{border-radius:0;color:#fff;background-color:transparent !important;border-bottom:1px solid #fff !important;}
+.personal_form .fp_login{font-size:12px;text-align: center;color:#FFFFFF;margin-top:5px;letter-spacing:0.05rem;}
+.cbutton{font-weight: 700;
+  color:#000000;
+  padding:10px 60px 10px 60px;
+  font-weight: 700;
+  border-radius:30px;
+  color:#000000;}
+  
+  .gradient_btn{
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#bf9133+0,c19333+12,c69536+16,cd9d3b+33,cf9f3d+34,d7a743+49,dcac48+53,dfad4a+59,e4b24f+64,eebc59+81,f9c560+100 */
+  background: #bf9133; /* Old browsers */
+  background: -moz-linear-gradient(left,  #bf9133 0%, #c19333 12%, #c69536 16%, #cd9d3b 33%, #cf9f3d 34%, #d7a743 49%, #dcac48 53%, #dfad4a 59%, #e4b24f 64%, #eebc59 81%, #f9c560 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #bf9133 0%,#c19333 12%,#c69536 16%,#cd9d3b 33%,#cf9f3d 34%,#d7a743 49%,#dcac48 53%,#dfad4a 59%,#e4b24f 64%,#eebc59 81%,#f9c560 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #bf9133 0%,#c19333 12%,#c69536 16%,#cd9d3b 33%,#cf9f3d 34%,#d7a743 49%,#dcac48 53%,#dfad4a 59%,#e4b24f 64%,#eebc59 81%,#f9c560 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf9133', endColorstr='#f9c560',GradientType=1 ); /* IE6-9 */
+  border:none;
+  
+  }
+  
+  .bg_dark{background: #000;}
+  .signupForm .personal_form{margin-top:60px;}
+  .signupForm .personal_form .form-group .form-control{background: transparent !important;}
+  
+  .fp_login a{color:#fff;}
+  .w-100{width:100%;}
+  
+  
+  .category table.table td {
+    border-top: 0 !important;
+    border-bottom:0 !important;
+  }
+  .category table.table th {
+   border-top: 0 !important;
+    border-bottom:0 !important;
+  }
+  .primary_header{padding:0;}
+  .primary_header a.navbar-brand img{width:160px;height:50px;object-fit: cover;}
+  .userBody{background: #ffffff;padding:20px;border:1px solid #c4cdd5;}
+  .plan-body{padding-bottom: 10px;
+    border-bottom: 1px solid #c4cdd5;}
+  .pro-section{    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+    border-radius: 3px;
+    margin-bottom: 20px;}
+    .pro-section .user-title{
+      padding: 14px 20px;
+      border-bottom: 1px solid #dfe4e8;
+}
+.pro-section .user-body{padding:20px;}
+.upload_section{position: relative;}
+/* .upload_button{position: absolute;
+bottom: 0;
+text-align: center;width:100%;
+} */
+.vfile .inputfile.inputfile-1 {
+  display: none;
+}
+.vfile .inputfile-1 + label {
+  color: #f1e5e6;
+  background-color: #17a2b8;
+  margin-top:10px;
+}
+.vfile .inputfile + label {
+font-weight: 700;
+  padding:10px  10px ;
+}
+.realestate_table thead,tfoot tr th{font-size: 15px;}
+.realestate_table tbody tr td{font-size: 14px;}
+.btn-py{padding:2px 9px 5px 9px;}
+.text-white{color:#fff;}
+.admin_table table th, .admin_table table td{text-align: center;}

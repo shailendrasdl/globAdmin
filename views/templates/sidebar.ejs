@@ -1,0 +1,252 @@
+<!-- Sidebar -->
+<ul class="sidebar navbar-nav">
+	<li class="nav-item" id="Dashboard">
+		<a class="nav-link" href="/dashboard">
+			<i class="fas fa-fw fa-tachometer-alt"></i>
+			<span>Dashboard</span>
+		</a>
+	</li>
+	<%
+		if(adminpermition.includes('Admin'))
+		{
+			%>
+				<!-- Users -->
+				<li class="nav-item dropdown users usersrole access_role usermanagement">
+					<a class="nav-link dropdown-toggle" href="#" id="Users_" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-fw fa-users"></i>
+						<span>Users</span>
+					</a>
+
+					<div class="dropdown-menu " aria-labelledby="Users_">
+						<!-- Admin access -->	
+						<a class="dropdown-item" href="/adminaccess">
+							<i class="fas fa-fw fa-user"></i>
+							<span>Admin access</span>
+						</a>
+						<!-- User role -->						
+						<a class="dropdown-item usersrole" href="/userrole">
+							<i class="fas fa-fw fa-lock"></i>
+							<span>Roles</span>
+						</a>
+						<!-- User management -->
+						<a class="dropdown-item " href="/usermanagement" id="usermanagement">
+							<i class="fas fa-fw fa-users"></i>
+							<span>User Management</span>
+						</a>
+					</div>
+				</li>
+
+				<li class="nav-item" id="subscription">
+					<a class="nav-link" href="/subscription">
+						<i class="fas fa-fw fa-tag"></i>
+						<!-- <span>Subscription</span> -->
+						<span>Plan</span>
+					</a>
+				</li>
+
+				<li class="nav-item dropdown traders">
+					<a class="nav-link dropdown-toggle" href="#" id="advertiser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-building"></i>
+						<span>RealEstate</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="advertiser">							
+						<a class="dropdown-item">
+							<!-- <span>Advertiser</span> -->
+						</a>
+						<a class="dropdown-item" href="/realestate">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>All RealEstate</span>
+						</a>
+						<a class="dropdown-item" href="/post_realestate">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Post Realestate</span>
+						</a>
+						<a class="dropdown-item" href="/spaceAttributes">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Attributes</span>
+						</a>
+						<a class="dropdown-item" href="/puroseAttributes">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Purose Attributes</span>
+						</a>
+					</div>
+				</li>
+
+				<!-- Automobile -->
+				<li class="nav-item dropdown automobile">
+					<a class="nav-link dropdown-toggle" href="#" id="automobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-fw fa-th-list"></i>
+						<span>Automobile</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="automobile">							
+						<a class="dropdown-item" href="/automobile">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>All automobile</span>
+						</a>
+						<a class="dropdown-item" href="/post_automobile">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Post Automobile</span>
+						</a>
+						
+					</div>
+				</li>
+				<!-- Boats -->
+				<li class="nav-item dropdown boats">
+					<a class="nav-link dropdown-toggle" href="#" id="boats" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-fw fa-th-list"></i>
+						<span>Boats</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="boats">
+						<a class="dropdown-item" href="/boats">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>All Boats</span>
+						</a>
+						<a class="dropdown-item" href="/post_boats">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Post Boats</span>
+						</a>
+					</div>
+				</li>
+
+				<!-- Globetech -->
+				<li class="nav-item dropdown globtech">
+					<a class="nav-link dropdown-toggle" href="#" id="globtech" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-fw fa-th-list"></i>
+						<span>Globtech</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="globtech">							
+						<a class="dropdown-item" href="/globtech">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>All Globtech</span>
+						</a>
+						<a class="dropdown-item" href="/post_globtech">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Post Globtech</span>
+						</a>
+						
+					</div>
+				</li>
+
+					<!-- GlobPage -->
+					<li class="nav-item dropdown globpage">
+						<a class="nav-link dropdown-toggle" href="#" id="globpage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-fw fa-th-list"></i>
+							<span>Globpage</span>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="globpage">							
+							<a class="dropdown-item" href="/globpage">
+								<i class="fas fa-fw fa-tag"></i>
+								<span>All Globpage</span>
+							</a>
+							<a class="dropdown-item" href="/post_globpage">
+								<i class="fas fa-fw fa-tag"></i>
+								<span>Post Globpage</span>
+							</a>
+							
+						</div>
+					</li>
+				
+			<%
+		} 
+		if(adminpermition.includes('Vendor'))
+		{
+			%>
+				<li class="nav-item dropdown traders">
+					<a class="nav-link dropdown-toggle" href="#" id="advertiser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-building"></i>
+						<span>RealEstate</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="advertiser">							
+						<a class="dropdown-item">
+							<!-- <span>Advertiser</span> -->
+						</a>
+						<a class="dropdown-item" href="/realestate">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>All RealEstate</span>
+						</a>
+						<a class="dropdown-item" href="/post_realestate">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Post Realestate</span>
+						</a>
+						<a class="dropdown-item" href="/spaceAttributes">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Space Attributes</span>
+						</a>
+						<a class="dropdown-item" href="/puroseAttributes">
+							<i class="fas fa-fw fa-tag"></i>
+							<span>Purose Attributes</span>
+						</a>
+					</div>
+				</li>
+			<%
+		}
+	%>
+	
+
+
+	<!-- <li class="nav-item" id="usermanagement">
+		<a class="nav-link" href="/usermanagement">
+			<i class="fas fa-fw fa-user"></i>
+			<span>User Management</span>
+		</a>
+	</li> -->
+
+	
+	<!-- <li class="nav-item" id="advertiser">
+		<a class="nav-link" href="/advertiser">
+			<i class="fas fa-fw fa-tag"></i>
+			<span>Advertiser</span>
+		</a>
+	</li> -->
+
+
+
+
+	<!-- Auto Mobile -->
+	<!-- <li class="nav-item dropdown automobile">
+		<a class="nav-link dropdown-toggle" href="#" id="Automobile_" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fa fa-car" aria-hidden="true"></i>
+			<span>Automobile</span>
+		</a>
+		<div class="dropdown-menu">							
+			<a class="dropdown-item" href="/automobile">
+				<i class="fas fa-fw fa-tag"></i>
+				<span>All Automobile</span>
+			</a>
+			<a class="dropdown-item" href="/add_automobile">
+				<i class="fas fa-fw fa-tag"></i>
+				<span>Add New Automobile</span>
+			</a>
+			<a class="dropdown-item" href="/automobile_attributes">
+				<i class="fas fa-fw fa-tag"></i>
+				<span>Automobile Attributes</span>
+			</a>
+		</div>
+	</li> -->
+
+
+
+
+	<!-- Language -->
+	<!-- <li class="nav-item dropdown language">
+		<a class="nav-link dropdown-toggle" href="#" id="Language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fas fa-language"></i>
+			<span>Language</span>
+		</a>
+		<div class="dropdown-menu language" aria-labelledby="Language">
+			<a class="dropdown-item" href="/">
+				<i class="fa fa-language"></i>
+				<span>English</span>
+			</a>
+		</div>
+	</li> -->
+		
+	<!-- <li class="nav-item" id="pages">
+		<a class="nav-link" href="/pages">
+			<i class="fas fa-fw fa-tag"></i>
+			<span>Pages</span>
+		</a>
+	</li> -->
+</ul>
+	
+<div id="content-wrapper">

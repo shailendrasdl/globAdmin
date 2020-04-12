@@ -1,0 +1,154 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Realestate edit</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Edit Realestate details </h3> 
+                </div>
+                <form action="/editRealestate/<%= editrealestate._id %>" method="post">
+                    <div class="row">	
+                        <!-- <div class="form-group col-md-3">
+                            <label>Category<span class="text-danger">*</span></label>
+                            <input type="text" name="category" id="category" value="<%= editrealestate.category %>" readonly class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Email</label>
+                            <input type="text" name="email" id="email" value="<%= editrealestate.email %>" readonly class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Phone Number</label>
+                            <input type="text" name="mobile" id="mobile" value="<%= editrealestate.mobile %>" class="form-control">
+                        </div> -->
+                        <div class="form-group col-md-3">
+                            <label>Keywords</label>
+                            <input type="text" name="keywords" id="keywords" value="<%= editrealestate.keywords %>" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                           <label>Description </label>
+                            <textarea name="description" rows="4" value="<%= editrealestate.description %>" id="description" class="form-control"><%= editrealestate.description %></textarea>												
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>Address </label>
+                            <textarea name="address" rows="4" value="<%= editrealestate.address %>" id="address" class="form-control"><%= editrealestate.address %></textarea>												
+                        </div>
+                    </div>
+                    <h6>FEATURES<h6>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Type</label>
+                            <input type="text" name="type" id="type" value="<%= editrealestate.type %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Purpose</label>
+                            <input type="text" name="purpose" id="purpose" value="<%= editrealestate.purpose %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Time of avaliability</label>
+                            <input type="text" name="time_of_avaliability" id="time_of_avaliability" value="<%= editrealestate.time_of_avaliability %>" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label>Type of space</label><br/>
+                            <select class="form-control" name="type_of_space">
+                                <option value="<%= editrealestate.type_of_space %>"><%= editrealestate.type_of_space %> </option>
+                                <option value="Home">Home </option>
+                            </select>
+                          </div>
+
+                        <div class="form-group col-md-3">
+                            <label>Square feet</label>
+                            <input type="text" name="square_feet" id="square_feet" value="<%= editrealestate.square_feet %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Location</label>
+                            <input type="text" name="location" id="location" value="<%= editrealestate.location %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>No of bathrooms</label>
+                            <input type="text" name="no_of_bathrooms" id="no_of_bathrooms" value="<%= editrealestate.no_of_bathrooms %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>No of bedrooms</label>
+                            <input type="text" name="no_of_bedrooms" id="no_of_bedrooms" value="<%= editrealestate.no_of_bedrooms %>" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Resedential/holiday</label><br>
+                            <input type="radio" name="resedential">&nbsp;&nbsp;<label>Resedential</label><br>
+                            <input type="radio" name="resedential">&nbsp;&nbsp;<label>Holiday</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label> Condition </label><br>
+                            <input type="radio" name="condition">&nbsp;&nbsp;<label>Used</label><br>
+                            <input type="radio" name="condition">&nbsp;&nbsp;<label>New</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label> Garage included </label><br>
+                            <input type="radio" name="garage_included">&nbsp;&nbsp;<label>Yes</label><br>
+                            <input type="radio" name="garage_included">&nbsp;&nbsp;<label>No</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label> Lift </label><br>
+                            <input type="radio" name="lift">&nbsp;&nbsp;<label>Yes</label><br>
+                            <input type="radio" name="lift">&nbsp;&nbsp;<label>No</label>
+                        </div>
+                    </div>
+                    <h6> PAYMENT </h6>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Currency</label>
+                            <input type="text" name="currency" id="currency" value="<%= editrealestate.currency %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Price</label>
+                            <input type="text" name="price" id="price" value="<%= editrealestate.price %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Rent price</label>
+                            <input type="text" name="rent_price" id="rent_price" value="<%= editrealestate.rent_price %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Monthly charges</label>
+                            <input type="text" name="monthly_charges" id="monthly_charges" value="<%= editrealestate.monthly_charges %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Level</label>
+                            <input type="text" name="level" id="level" value="<%= editrealestate.level %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Amenities</label>
+                            <textarea name="amenities" rows="4" value="<%= editrealestate.amenities %>" id="amenities" class="form-control"><%= editrealestate.amenities %></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <div class="input text">
+                                <button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                                <a href="/realestate" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %> 

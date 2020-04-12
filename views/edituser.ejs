@@ -1,0 +1,63 @@
+	<!-- Header -->
+	<% include templates/header.ejs %>
+	<!--// -->
+	<!-- Sidebar -->
+	<% include templates/sidebar.ejs %>
+	<!--// -->       
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/dashboard">Dashboard</a>
+				</li>
+				<li class="breadcrumb-item active">User Edit</li>
+			</ol>
+
+			<div class="row">				
+				<div class="col-md-12 column">				
+					<div class="box box-primary">
+						<div class="box-header">
+							<h3 class="box-title">Edit user details</h3> 
+						</div>							
+						<form action="/edituser/<%= edituser_arr._id %>" method="post">
+							<div class="box-body">
+								<div class="row">	
+									<div class="form-group col-md-6">
+										<label>Username<span class="text-danger">*</span></label>
+										<input type="text" name="username" value="<%= edituser_arr.username %>" required id="username" class="form-control">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Email<span class="text-danger">*</span></label>
+										<input type="email" name="email" value="<%= edituser_arr.email %>" required id="email" class="form-control">
+									</div>
+								</div>
+								<div class="row">	
+									<div class="form-group col-md-6">
+										<label>Phone</label>
+										<input type="number" name="phone" value="<%= edituser_arr.phone %>" id="phone" class="form-control">
+									</div>
+									<div class="form-group col-md-6">
+										<label>ETH Address<span class="text-danger">*</span></label>
+										<input type="text" name="eth_address" value="<%= edituser_arr.eth_address %>" onblur="ethAddress_validation();" id="eth_address" required class="form-control">
+										<span class="text-danger" id="ethaddress_val"></span>
+									</div>
+								</div>						
+								<div class="row">
+									<div class="form-group col-md-5">
+										<div class="input text">
+											<button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Update</button>
+											<a href="/users" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+        </div>
+        <!-- /.container-fluid -->
+	<!-- Footer -->
+	<% include templates/footer.ejs %>
+	<!--// -->           

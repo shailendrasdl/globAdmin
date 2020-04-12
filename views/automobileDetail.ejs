@@ -1,0 +1,158 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<!-- Automobile Body -->
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                <i class="fa fa-building"></i> Automobile Detail
+            </div>
+            <div class="col-md-2">
+                <a href="/automobile" class="btn btn-info btn-block" title="User">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="form -group col-md-4">
+        <video class="video-fluid" controls>
+            <source src="<%= automobileDetails.base64_video %>" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Description </label>
+            <textarea name="description" rows="4" value="<%= automobileDetails.description %>" id="description" readonly class="form-control"><%= automobileDetails.description%></textarea>												
+        </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Address </label>
+            <textarea name="address" rows="4" value="<%= automobileDetails.address%>" id="address" readonly class="form-control"><%= automobileDetails.address%></textarea>												
+        </div>
+    </div>
+</div>
+<br>
+<h6> FEATURES </h6>
+
+<div class="row">
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Make</label>
+            <input name="type" value="<%= automobileDetails.make %>" type="text" id="make" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Model</label>
+            <input name="type" value="<%= automobileDetails.model %>" type="text" id="model" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Variant</label>
+            <input name="type" value="<%= automobileDetails.variant %>" type="text" id="variant" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Engine</label>
+            <input name="type" value="<%= automobileDetails.engine %>" type="text" id="engine" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Horse Power</label>
+            <input name="type" value="<%= automobileDetails.horse_power %>" type="text" id="horse_power" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Mileage</label>
+            <input name="type" value="<%= automobileDetails.mileage %>" type="text" id="mileage" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Fuel</label>
+            <input name="type" value="<%= automobileDetails.fuel %>" type="text" id="fuel" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Emission Class</label>
+            <input name="type" value="<%= automobileDetails.emission_class %>" type="text" id="emission_class" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>1st registration year</label>
+            <input name="type" value="<%= automobileDetails.registration_year %>" type="text" id="registration_year" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Currency</label>
+            <input name="type" value="<%= automobileDetails.currency %>" type="text" id="currency" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Warranty</label>
+            <input name="type" value="<%= automobileDetails.warranty %>" type="text" id="warranty" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Location</label>
+            <input name="type" value="<%= automobileDetails.location %>" type="text" id="location" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Color </label>
+            <input name="type" value="<%= automobileDetails.color %>" type="text" id="color" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Interior seats</label>
+            <input name="type" value="<%= automobileDetails.interior_seats %>" type="text" id="interior_seats" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Doors</label>
+            <input name="type" value="<%= automobileDetails.doors %>" type="text" id="doors" readonly class="form-control number-only">												
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <div class="input text">
+            <label>Seats</label>
+            <input name="type" value="<%= automobileDetails.seats %>" type="text" id="seats" readonly class="form-control number-only">												
+        </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Equipment Description </label>
+            <textarea name="amenities" rows="4" value="<%= automobileDetails.equipment_description %>" id="equipment_description" readonly class="form-control"><%= automobileDetails.equipment_description %></textarea>												
+        </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <div class="input text">
+            <label>Accessories </label>
+            <textarea name="amenities" rows="4" value="<%= automobileDetails.accessories %>" id="accessories" readonly class="form-control"><%= automobileDetails.accessories %></textarea>												
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<% include templates/footer %>
+

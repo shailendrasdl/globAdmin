@@ -1,0 +1,137 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<!--Inside Add config -->
+<% include templates/config.ejs %>
+<!--Inside Add evabot_provider -->
+<% include templates/evabot_provider %>
+<!--Inside Add whitelists -->
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"> <a href="/dashboard"> Dashboard </a> </li>
+        <li class="breadcrumb-item active"> Evabot </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Register white lists</h3> 
+                </div>
+                <form action="/addwhitelist" method="post">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Wallet Address<span class="text-danger"></span></label>
+                                <input type="address" id="address" name="address" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <div class="input text">
+                                    <button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Register whitelists</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br><br>
+                <h4>GETTERS</h4>
+                
+                <button class="btn btn-success btn-sm" onclick="getEthBotActiveInvestment1()">
+                    Get EthBot Tokens
+                </button>
+                <button class="btn btn-success btn-sm" onclick="getEthBotActiveInvestment1()">
+                    Get Evot Tokens
+                </button>
+                <button class="btn btn-success btn-sm" onclick="getEthBotActiveInvestment1()">
+                    doesCycleOpened
+                </button>
+                <button class="btn btn-success btn-sm" onclick="getEthBotActiveInvestment1()">
+                    Get Cycle Data
+                </button>
+                <button class="btn btn-success btn-sm" onclick="getEthBotActiveInvestment1()">
+                    getlimits
+                </button>
+                <br><br>
+
+                <h4>SETTERS</h4>
+                <button class="btn btn-success btn-sm" onclick="pauseContract()"> Pause Contract </button>
+                <button class="btn btn-success btn-sm" onclick="resumeContract()"> Resume Contract </button>
+                <button class="btn btn-success btn-sm" onclick="transferOwnership()"> Transfer Ownership </button>
+                <button class="btn btn-success btn-sm" onclick="setEtherBotMaxLimit()"> Set Max Limit Ether Bot </button>
+                <button class="btn btn-success btn-sm" onclick="setEvotBotMaxLimit()"> Set Min Lmit Ether Bot </button>
+                <button class="btn btn-success btn-sm mt-2" onclick="blockUser()"> Block User </button>
+                <button class="btn btn-success btn-sm mt-2" onclick="unblockUser()"> UnBlock User </button>
+                
+                <br><br>
+                <button class="btn btn-success btn-sm" onclick="stopCycle()"> Stop Cycle </button>
+                <button class="btn btn-success btn-sm" onclick="startCycle()"> Start Cycle </button>
+                
+                <br><br>
+                <div class="box-body">
+                    <form id="db_form" action="/savetoDB" method="POST">
+                        <div class="form-group col-md-6">
+                            <label>Deposited Ether amount<span class="text-danger"></span></label>
+                            <input type="text" id="ether_amount" name="ether_amount" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Total Invested Tokens on Ether Bot<span class="text-danger"></span></label>
+                            <input type="text" id="total_invested_ether_bot" name="total_invested_ether_bot" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Deposited Evot amount<span class="text-danger"></span></label>
+                            <input type="text" id="evot_amount" name="evot_amount" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Total Invested Tokens on Evot Bot<span class="text-danger"></span></label>
+                            <input type="text" id="total_invested_evot_bot" name="total_invested_evot_bot" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="hidden" name = "ethereum_usd_price" id="ethereum_usd_price" class="form-control"/>
+                            <input type="hidden" name = "evot_usd_price" id = "evot_usd_price" class="form-control"/>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <div class="input text">
+                                    <button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                                    <a href="/evabot" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+
+<script>
+    async function getEthBotActiveInvestment1() {
+        var data = await getEthBotActiveInvestment();
+        alert(data[0].toString() / 10 ** 18);
+    }
+    async function getEthBotActiveInvestment2() {
+        var data = await getEthBotActiveInvestment();
+        alert(data[1].toString() / 10 ** 18);
+    }
+    async function getLimits1() {
+        var data = await getLimits();
+        alert('Ether bot max: ' + data[0].toString() / 10 ** 18 + '\n' + 'Ether bot min: ' + data[1].toString() / 10 ** 18 + '\n' + 'Evot bot max: ' + data[2].toString() / 10 ** 18 + '\n' + 'Evot bot min: ' + data[3].toString() / 10 ** 18);
+    }
+    async function getCycleData1() {
+        var cycleId = await getCurrentCycleId();
+        // console.log(cycleId.toString());
+        var data = await getCycleData(cycleId);
+        alert('etherBotCycleFunds: ' + data[0].toString() / 10 ** 18 + '\n' + 'evotBotCycleFunds: ' + data[1].toString() / 10 ** 18 + '\n' + 'etherBotProfit: ' + data[2].toString() / 10 ** 18 + '\n' + 'evotBotProfit: ' + data[3].toString() / 10 ** 18);
+    }
+    window.onload = function(e) { 
+        var ethusd="<%= ethereumUSDPrice %>";
+        document.getElementById('ethereum_usd_price').value = ethusd;
+        document.getElementById('evot_usd_price').value = evot_token_price_now;
+    }
+</script>
+
+<!-- Footer-->
+<% include templates/footer.ejs %>

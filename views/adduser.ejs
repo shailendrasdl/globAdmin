@@ -1,0 +1,66 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+    
+<div class="container-fluid">
+	<!-- Breadcrumbs-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="/dashboard">Dashboard</a>
+		</li>
+		<li class="breadcrumb-item active">User Add</li>
+	</ol>
+
+	<div class="row">				
+		<div class="col-md-12 column">				
+			<div class="box box-primary">
+				<div class="box-header">
+					<h3 class="box-title">Add user details</h3> 
+				</div>							
+				<form action="/adduser" method="post">
+					<div class="box-body">
+						<div class="row">	
+							<div class="form-group col-md-6">
+								<label>Username<span class="text-danger">*</span></label>
+								<input type="text" autocomplete="off" name="username" required id="username"  value="<%= form.usernameholder %>" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label>Email<span class="text-danger">*</span></label>
+								<input type="email" name="email" required id="email" value="<%= form.emailholder %>" class="form-control">
+							</div>
+						</div>
+						<div class="row">	
+							<div class="form-group col-md-6">
+								<label>Phone</label>
+								<input type="number" name="phone" id="phone" value="<%= form.phoneholder %>" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label>Referred By</label>
+								<input type="text" name="referrered_by" id="referrered_by" value="<%= form.referrered_byholder %>" class="form-control">
+							</div>
+						</div>
+						<div class="row">	
+							<div class="form-group col-md-6">
+								<label>Password<span class="text-danger">*</span></label>
+								<input type="password" name="password" required id="password"  value="<%= form.passwordholder %>" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label>Confirm password<span class="text-danger">*</span></label>
+								<input type="password" name="conf_password" required id="conf_password" value="<%= form.conf_passwordholder %>" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-5">
+								<div class="input text">
+									<button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+									<a href="/users" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>	
+<!-- Footer -->
+<% include templates/footer.ejs %>         

@@ -1,0 +1,260 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Users Management</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header mb-3">
+            <div class="row clearfix">
+                <div class="col-md-8">
+                    <div class="row clearfix">
+                    <div class="col-md-2"> <label class="mt-1"><i class="fas fa-filter"></i>FILTERS</label></div>
+                    <div class="col-md-4">
+                        <select class="form-control" id="subscribefind" onchange="get_userlist()">
+                            <option value="">User Subscription</option>
+                            <option value="true">Subscribed</option>
+                            <option value="false">Unsubscribed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="statusfind" onchange="get_userlist()">
+                            <option value="">User Status</option>
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                            <!-- <option>Blocked</option> -->
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="typefind" onchange="get_userlist()">
+                            <option value="" >User Type</option>
+                            <option value="1">Individual User</option>
+                            <option value="2">Professional User</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row clearfix">
+                        <div class="col-md-7">
+                            <input type="text" placeholder="Search Name Mobile" onkeyup="get_userlist()" class="form-control emailfind">
+                        </div>
+                        <div class="col-md-5">
+                            <a href="/addNewUser" class="btn btn-primary btn-block" title="User">Add New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="col-md-3 offset-md-9 ">
+            <div class="row clearfix">
+                 <div class="col-md-6"> 
+                    <a onClick="userBlockUnblock('block')" multiple class="btn btn-primary btn-sm w-100 text-white" title="User">Unblock</a>
+                </div>
+                 <div class="col-md-6">
+                    <a onClick="userBlockUnblock('unblock')" multiple class="btn btn-primary btn-sm w-100 text-white" title="User">Block</a>
+                 </div>
+            </div>   
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table mt-2" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select_all"></th>
+                            <th>username</th>
+                            <!-- <th>companyName</th> -->
+                            <th>email</th>
+                            <th>mobile</th>
+                            <th>date</th>
+                            <th>subscription</th>
+                            <th>status</th>
+                            <th>user_type</th>
+                            <th>posted</th>
+                            <!-- <th width="10%">Details</th> -->
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th><input type="checkbox" id="select_all"></th>
+                            <th>username</th>
+                            <!-- <th>companyName</th> -->
+                            <th>email</th>
+                            <th>mobile</th>
+                            <th>date</th>
+                            <th>subscription</th>
+                            <th>status</th>
+                            <th>user_type</th>
+                            <th>posted</th>
+                            <!-- <th width="10%">Details</th> -->
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody id="showuser">
+                        <%
+                            if(users_list != '')
+                            {
+                                var userList_arr = users_list;
+                                for(var i=0; i < users_list.length; i++)
+                                {
+                                    %>
+                                        <tr>
+                                            <td > <input class="checkbox" value="<%= users_list[i]._id %>" type="checkbox" name="block_status"></td>
+                                            <td><%= users_list[i].username %></td>
+                                            <!-- <td><%= users_list[i].company_name %></td> -->
+                                            <td><%= users_list[i].email %></td>
+                                            <td><%= users_list[i].phone %></td>
+                                            <td><%= users_list[i].created_at %></td> 
+                                            <td>
+                                                <%
+                                                    if(users_list[i].user_type == true)
+                                                    {
+                                                        %>
+                                                            Subscribed
+                                                        <%
+                                                    }
+                                                    else
+                                                    {
+                                                        %>
+                                                            Unsubscribed
+                                                        <%
+                                                    }
+                                                %>
+                                            </td>   
+                                            <td>
+                                                <%
+                                                    if(users_list[i].status == true)
+                                                    {
+                                                        %>
+                                                            Active
+                                                        <%
+                                                    }
+                                                    else
+                                                    {
+                                                        %>
+                                                            Inactive
+                                                        <%
+                                                    }
+                                                %>
+                                            </td>
+                                            <td>
+                                                <%
+                                                    if(users_list[i].role == 1)
+                                                    {
+                                                        %>
+                                                            Individual
+                                                        <%
+                                                    }
+                                                    else if(users_list[i].role == 2)
+                                                    {
+                                                        %>
+                                                            Professional
+                                                        <%
+                                                    }
+                                                %>
+                                            </td>
+                                            <td>45</td> 
+                                            <td>
+                                                <!-- <i class="fas fa-trash text-danger" onClick="removeDetails('removeuser','<%= users_list[i]._id %>')" style="cursor:pointer"></i> -->
+                                                <a class="btn btn-danger btn-sm text-white" onClick="removeDetails('removeuser','<%= users_list[i]._id %>')" ><i class="fas fa-trash text-white" style="cursor:pointer"></i>&nbsp;&nbsp;Delete</a>
+                                            </td> 
+                                        </tr>
+                                    <%
+                                }
+                            }
+                        %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var select_all = document.getElementById("select_all"); //select all checkbox
+    var checkboxes = document.getElementsByClassName("checkbox"); //checkbox items
+
+    //select all checkboxes
+    select_all.addEventListener("change", function(e){
+        for (i = 0; i < checkboxes.length; i++) { 
+            checkboxes[i].checked = select_all.checked;
+        }
+    });
+    
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function(e){ //".checkbox" change 
+            //uncheck "select all", if one of the listed checkbox item is unchecked
+            if(this.checked == false){
+                select_all.checked = false;
+            }
+            //check "select all" if all checkbox items are checked
+            if(document.querySelectorAll('.checkbox:checked').length == checkboxes.length){
+                select_all.checked = true;
+            }
+        });
+    }
+
+    /* User Block Unblock */
+    function userBlockUnblock(type)
+    {
+        var favorite = [];
+        $.each($("input[name='block_status']:checked"), function(){            
+            favorite.push($(this).val());
+        });
+        //console.log('-> ID :', favorite);
+       // console.log(type);
+        
+        $.ajax({
+            url: '/userBlockUnblock',
+            method: 'POST',
+            data: {type: type, uId: favorite.join(',')}
+        }).done(function(response) {	
+            if(response)
+            {
+                location.reload();
+                toastr.success('Update details are successful!');
+                
+            }
+            else
+            {
+                toastr.success('Some error occured', 'Warning!');
+            }
+        });
+    }
+
+</script>
+
+
+<script>
+    /* Search by name, mobile_no. status, subscribe and type */
+    function get_userlist()
+    { 
+        $('#showuser').html('<tr><td colspan="6" class="text-center"><br><i>Please Wait....</i><br><br><br></td></tr>');
+        var subscribe = $('#subscribefind option:selected').val();
+        var status = $('#statusfind option:selected').val();
+        var type = $('#typefind option:selected').val();
+        var email = $('.emailfind').val();
+        //alert(type);
+        $.ajax({
+            url: '/userslist',
+            method: 'POST',
+            data: {id: email, subscribe: subscribe, status: status, type: type}
+        }).done(function(res) {	
+            if(res)
+            {
+                $('#showuser').html(res);
+            }
+            else
+            {
+                $('#showuser').html('<tr><td colspan="6" class="text-center"><br><i>Not found</i><br><br><br></td></tr>');
+            }
+        });
+    }
+</script>
+
+<% include templates/footer.ejs %>

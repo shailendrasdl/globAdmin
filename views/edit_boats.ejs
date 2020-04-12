@@ -1,0 +1,146 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Boats edit</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Edit Boats details </h3> 
+                </div>
+                <form action="/editBoats/<%= editboats._id %>" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>Keywords</label>
+                            <input type="text" name="keywords" id="keywords" value="<%= editboats.keywords %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Description </label>
+                            <textarea name="description" rows="4" value="<%= editboats.description %>" id="description" class="form-control"><%= editboats.description %></textarea>												
+                        </div>
+ 
+                        <div class="form-group col-md-4">
+                            <label>Address </label>
+                            <textarea name="address" rows="4" value="<%= editboats.address %>" id="address" class="form-control"><%= editboats.address %></textarea>												
+                        </div>
+                    </div>
+                    <h6>FEATURES</h6>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Make</label>
+                            <input type="text" name="make" id="make" value="<%= editboats.make %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Model</label>
+                            <input type="text" name="model" id="model" value="<%= editboats.model %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Currency</label>
+                            <input type="text" name="currency" id="make" value="<%= editboats.currency %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Price</label>
+                            <input type="text" name="price" id="price" value="<%= editboats.price %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Year</label>
+                            <input type="text" name="year" id="year" value="<%= editboats.year %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Length</label>
+                            <input type="text" name="length" id="length" value="<%= editboats.length %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Width</label>
+                            <input type="text" name="width" id="width" value="<%= editboats.width %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Depth</label>
+                            <input type="text" name="depth" id="depth" value="<%= editboats.depth %>" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label>VAT payed</label><br>
+                            <input type="radio" name="vat_payed" value="<%= editboats.vat_payed %>">&nbsp;&nbsp;<label>Used</label><br>
+                            <input type="radio" name="vat_payed" value="<%= editboats.vat_payed %>">&nbsp;&nbsp;<label>New</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>For</label><br>
+                            <input type="radio" name="for" value="<%= editboats.for %>">&nbsp;&nbsp;<label> Used</label><br>
+                            <input type="radio" name="for" value="<%= editboats.for %>">&nbsp;&nbsp;<label>New</label>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label>Boat Type</label>
+                            <input type="text" name="boat_type" id="boat_type" value="<%= editboats.boat_type %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Power</label>
+                            <input type="text" name="power" id="power" value="<%= editboats.power %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Fule</label>
+                            <input type="text" name="fule" id="fule" value="<%= editboats.fule %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Water Capacity</label>
+                            <input type="text" name="water_capacity" id="water_capacity" value="<%= editboats.water_capacity %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>No. of Bedroom</label>
+                            <input type="text" name="no_of_bedrooms" id="no_of_bedrooms" value="<%= editboats.no_of_bedrooms %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>No. of Bathroom</label>
+                            <input type="text" name="no_of_bathrooms" id="no_of_bathrooms" value="<%= editboats.no_of_bathrooms %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Engine hours</label>
+                            <input type="text" name="engine_hours" id="engine_hours" value="<%= editboats.engine_hours %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Type of Engine</label>
+                            <input type="text" name="engine_type" id="engine_type" value="<%= editboats.engine_type %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>No. of Engines</label>
+                            <input type="text" name="no_of_engines" id="no_of_engines" value="<%= editboats.no_of_engines %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Hull material</label>
+                            <input type="text" name="hull_material" id="hull_material" value="<%= editboats.hull_material %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Color hull</label>
+                            <input type="text" name="color_hull" id="color_hull" value="<%= editboats.color_hull %>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Location</label>
+                            <input type="text" name="location" id="location" value="<%= editboats.location %>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <div class="input text">
+                                <button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                                <a href="/boats" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %>

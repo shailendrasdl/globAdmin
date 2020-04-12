@@ -1,0 +1,102 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Boats</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-10">
+                    <i class="fas fa-ship"></i> Boats
+                  </div>
+                  <div class="col-md-2">
+                    <a href="/post_boats" class="btn btn-info btn-block" title="Plan">POST ADD</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th> name </th>
+                        <th> mobile </th>
+                        <th> email</th>
+                        <th> price</th>
+                        <th> currency </th>
+                        <th> payment </th>
+                        <th> Details </th>
+                        <th> action </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th> name </th>
+                        <th> mobile </th>
+                        <th> email</th>
+                        <th> price</th>
+                        <th> currency </th>
+                        <th> payment </th>
+                        <th> Details </th>
+                        <th> action </th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <%
+                        if(boats_arr != '')
+                        {
+                            for(var i=0; i < boats_arr.length; i++)
+							{
+                                %>
+                                    <tr>
+                                        <td><%= boats_arr[i].name %></td>
+                                        <td><%= boats_arr[i].mobile %></td>
+                                        <td><%= boats_arr[i].email %></td>
+                                        <td><%= boats_arr[i].price %></td>
+                                        <td><%= boats_arr[i].currency %></td>
+                                        <td>
+                                            <%
+                                            if(boats_arr[i].payment_status == true)
+                                            {
+                                                %>
+                                                    <span class=" btn-success btn-py">Success</span>
+                                                <%
+                                            }
+                                            else
+                                            {
+                                                %>
+                                                    <span class=" btn-warning btn-py text-white">Pending</span>
+                                                <%
+                                            }
+                                            %>
+                                        </td> 
+                                        <td>
+                                            <a href="/boatsDetails/<%= boats_arr[i]._id %>">Details</a>
+                                        </td>
+                                        <td>
+                                            <a href="/editBoats/<%= boats_arr[i]._id %>" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-edit text-white"></i>&nbsp;&nbsp;Edit
+                                            </a>
+                                            &nbsp;
+                                            <a class="btn btn-danger btn-sm text-white" onClick="removeDetails('remove_boats','<%= boats_arr[i]._id %>')" ><i class="fas fa-trash text-white" style="cursor:pointer"></i>&nbsp;&nbsp;Delete</a> 														
+                                        </td>
+                                    </tr>
+                                <%     
+                            }
+                        }
+                    %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<% include templates/footer.ejs %> 

@@ -1,0 +1,68 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="/dashboard">Dashboard</a>
+		</li>
+		<li class="breadcrumb-item active">Role Manager</li>
+    </ol>
+    <div class="mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-10">
+                    <i class="fas fa-table"></i> Role List
+                </div>
+                <div class="col-md-2">
+                    <a href="/addnewrole" class="btn btn-primary btn-block" title="Sub-Admin">Add New Role</a>
+                </div>
+            </div>
+        </div>
+        <div class="userBody mt-4 mb-5">
+            <div class="table-responsive admin_table">
+                <table class="table" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Created_At</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                           <th>Role</th>
+                           <th>Status</th>
+                            <th>Created_At</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <%
+                            if(role_list != '')
+                            {
+                                for(var i=0; i < role_list.length; i++)
+                                {
+                                    %>
+                                        <tr>
+                                            <td><%= role_list[i].role_name %></td>
+                                            <td><%= role_list[i].status %></td>
+                                            <td><%= role_list[i].created_at %></td>
+                                        </tr>
+                                    <%
+                                }
+                            }
+                        %>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->	
+<% include templates/footer.ejs %>
+        

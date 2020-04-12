@@ -1,0 +1,42 @@
+{
+  "name": "evoai-admin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
+    "ejs": "~2.5.7",
+    "express": "^4.17.1",
+    "express-flash-messages": "^0.1.1",
+    "express-flash-notification": "^0.5.0",
+    "express-session": "^1.16.2",
+    "express-toastr": "^2.0.2",
+    "express-validator": "^6.1.1",
+    "flash": "^1.1.0",
+    "geoip-lite": "^1.3.7",
+    "http-errors": "~1.6.2",
+    "http-status-codes": "^1.4.0",
+    "ip": "^1.1.5",
+    "ipware": "^2.0.0",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.6.7",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.2",
+    "node-gyp": "^5.0.3",
+    "node-serialize": "0.0.4",
+    "nodemailer": "^6.4.2",
+    "rebuild": "^0.1.2",
+    "req-flash": "0.0.3",
+    "toastr": "^2.1.4",
+    "wallet-address-validator": "^0.2.4"
+  }
+}

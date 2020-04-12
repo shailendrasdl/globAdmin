@@ -1,0 +1,78 @@
+	<!-- Header -->
+	<% include templates/header.ejs %>
+	<!--// -->
+	<!-- Sidebar -->
+	<% include templates/sidebar.ejs %>
+	<!--// -->       
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/">Dashboard</a>
+				</li>
+				<li class="breadcrumb-item active">Users referral</li>
+			</ol>
+
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fas fa-table"></i> Users List</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table" id="dataTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Username</th>
+									<th>Email</th>
+									<th>Referral</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Username</th>
+									<th>Email</th>
+									<th>Referral</th>
+									<th>Date</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<%
+									if(reference_user_arr != '')
+									{
+										for(var i=0; i < reference_user_arr.length; i++)
+										{
+											var j=0;
+											%>
+												<tr>
+													<td><%= reference_user_arr[i].username %></td>
+													<td><%= reference_user_arr[i].email %></td>
+													<td>
+													<%
+														for(j; j < userList_arr.length; j++)
+														{
+															if(reference_user_arr[i].user_referenced_code == userList_arr[j].user_referral_code)
+															{
+																%>
+																	<%= userList_arr[j].username %>
+																<%
+															}
+														}														
+													%>
+													</td>
+													<td><%= reference_user_arr[i].created_on %></td>
+												</tr>
+											<%											
+										}
+									}
+								%>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+        </div>
+        <!-- /.container-fluid -->
+	<!-- Footer -->
+	<% include templates/footer.ejs %>
+	<!--// -->           

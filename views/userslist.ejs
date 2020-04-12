@@ -1,0 +1,71 @@
+<%
+	if(users_list != '')
+	{
+		var userList_arr = users_list;
+		for(var i=0; i < users_list.length; i++)
+		{
+			%>
+				<tr>
+					<td > <input type="checkbox" class="checkbox"></td>
+					<td><%= users_list[i].contact_name %></td>													
+					<!-- <td><%= users_list[i].company_name %></td>	 -->
+					<td><%= users_list[i].email %></td>
+					<td><%= users_list[i].phone %></td>
+					<td><%= users_list[i].created_at %></td> 
+					<td>
+						<%
+							if(users_list[i].user_type == true)
+							{
+								%>
+									Subscribed
+								<%
+							}
+							else
+							{
+								%>
+									Unsubscribed
+								<%
+							}
+						%>
+					</td>
+					<td>
+						<%
+							if(users_list[i].status == true)
+							{
+								%>
+									Active
+								<%
+							}
+							else
+							{
+								%>
+									Inactive
+								<%
+							}
+						%>
+					</td>  
+					<td>
+						<%
+							if(users_list[i].role == 1)
+							{
+								%>
+									Individual
+								<%
+							}
+							else if(users_list[i].role == 2)
+							{
+								%>
+									Professional
+								<%
+							}
+						%>
+					</td> 
+					<td>45</td> 
+					<td>
+						<i class="fas fa-trash text-danger" onClick="removeDetails('removeuser','<%= users_list[i]._id %>')" style="cursor:pointer"></i>
+					</td>
+				</tr>
+			<%	
+		}
+	}
+%>		

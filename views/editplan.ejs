@@ -1,0 +1,77 @@
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+            <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Subscription</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="box box-primary">
+                <div class="box-header">
+					<h3 class="box-title">Edit Plan Details</h3> 
+                </div>
+                <form action="/editplan/<%= edit_plan._id %>" method="post">
+                    <div class="box-body">
+                        <div class="row mt-5">
+                          
+                            <div class="form-group col-md-4">
+                                <label>Plan </label>
+                              <select class="form-control" name="plan_name" id="plan_name">
+                                    <!-- <option value="<%= edit_plan.plan_name %>"  <%= edit_plan.plan_name %> </option> -->
+                                    <option value= <%= (edit_plan.plan_name)%>> <%= edit_plan.plan_name %> </option>
+                                    <option value=""> -- Select plan -- </option>
+                                    <option value="Silver">Silver</option>
+                                    <option value="Gold">Gold</option>
+                                    <option value="Platinum">Platinum</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label> Validity <span class="text-danger">*</span></label>
+                                <select name="validity" id="validity" class="form-control">
+                                    <option value= <%= (edit_plan.plan_Validity)%>> <%= edit_plan.plan_Validity %> </option>
+                                    <option value=""> -- Select validity -- </option>
+                                    <option value="10">10 Days</option>
+                                    <option value="20">20 Days</option>
+                                    <option value="30">30 Days</option>
+                                </select>
+                            </div>
+                           
+                            <div class="form-group col-md-4">
+                                <label> Price </label>
+                                <input type="text" name="price" id="price" class="form-control" value= <%= (edit_plan.plan_price)%>>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label> Post Validity </label>
+                                <input type="text" name="post_validity" id="post_validity" class="form-control" value= <%= (edit_plan.post_validity)%>>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>Status</label>
+                                <select class="form-control" name="status" id="status">
+                                    <option value="true" <%= (edit_plan.status == true)?"selected":"" %>>Active</option>
+                                    <option value="false" <%= (edit_plan.status == false)?"selected":"" %>>Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col-md-5">
+                                <div class="input text">
+                                    <button class="btn btn-success btn-sm" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+                                    <a href="/subscription" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<% include templates/footer.ejs %> 

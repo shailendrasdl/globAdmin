@@ -1,0 +1,99 @@
+<!-- Header-->
+<% include templates/header.ejs %>
+<% include templates/sidebar.ejs %>
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home"></i>
+          <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Subscription</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-10">
+                    <i class="fas fa-table"></i> Plan & Pricing
+                  </div>
+                  <div class="col-md-2">
+                    <a href="/add_new_plan" class="btn btn-primary btn-block" title="Plan">Add New Plan</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                      <th> name </th>
+                      <th> validity</th>
+                      <th> price</th>
+                       <th> Post_Validity</th>
+                      <th> status </th>
+                      <th> action </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th> name </th>
+                    <th> validity</th>
+                    <th> price</th>
+                    <th> Post_Validity</th>
+                    <th> status </th>
+                    <th> action </th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <%
+                    if(plan_list != '')
+                    {
+                        for(var i=0; i < plan_list.length; i++)
+                        {
+                            %>
+                                <tr>
+                                <td><%= plan_list[i].plan_name %></td>	
+                                <td><%= plan_list[i].plan_Validity%> Days</td>	
+                                <td><%= plan_list[i].plan_price %></td>
+                                <td><%= plan_list[i].post_validity %></td>
+                                <td>
+                                    <%
+                                    if(plan_list[i].status == true)
+                                    {
+                                        %>
+                                        Active
+                                        <%
+                                    }
+                                    else
+                                    {
+                                        %>
+                                        Inactive
+                                        <%
+                                    }
+                                    %>
+                                </td>
+                                <td>
+                                    <!-- <a href="/editplan/<%= plan_list[i]._id %>">
+                                        <i class="fas fa-edit text-info"></i>
+                                    </a> -->
+                                    <a href="/editplan/<%= plan_list[i]._id %>" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-edit text-white"></i>&nbsp;&nbsp;Edit
+                                    </a>
+                                    &nbsp;
+                                    <a class="btn btn-danger btn-sm text-white" onClick="removeDetails('removeplan','<%= plan_list[i]._id %>')" ><i class="fas fa-trash text-white" style="cursor:pointer"></i>&nbsp;&nbsp;Delete</a>											
+                                    <!-- <i class="fas fa-trash text-danger" onClick="removeDetails('removeplan','<%= plan_list[i]._id %>')" style="cursor:pointer"></i> -->
+                                </td>
+                                </tr>
+                            <%
+                        }
+                    }
+                %>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<% include templates/footer.ejs %>   

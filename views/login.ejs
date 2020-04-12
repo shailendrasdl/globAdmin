@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <meta name="google-site-verification" content="HvvsDnWkSnR2G8PEQ-_YAeJS1oUHhO61EynOAcavslU" />
+      <title><%= title %></title>
+      <!-- Custom fonts for this template-->
+      <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      <!-- Custom styles for this template-->
+     <link href="/css/sb-admin.css" rel="stylesheet" type="text/css"> 
+      <link href="/css/custom.css" rel="stylesheet" type="text/css">
+      <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+   </head>
+   <body class="bg_dark bgimg" style="background-image:url('../images/bgimg2.png');background-repeat: no-repeat;background-size: inherit;">
+      <div class="container">
+         <div class="row clearfix">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 signupForm ">
+               <div class="row clearfix">
+                  <div class="col-md-10 offset-md-1">
+                     <h2 class="text-white text-center">LOGIN</h2>
+                     <!--Personal-->              
+                     <div id='show-me' class="personal_form">
+                        <form action="/login" method="POST">
+                           <div class="form-group">
+                            <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                           </div>
+                           <div class="form-group">
+                            <input type="hidden" id="redurl" name="redurl" class="hidden" value="<%= redirecturl %>">                            
+                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">                            
+                           </div>
+                           <div class="submit_personal text-center mt-3">
+                              <button type="submit" class="cbutton gradient_btn">LOGIN</button>
+                           </div>
+                        </form>
+                        <p class="fp_login"><a href="/forgot_password">FORGOT PASSWORD?</a></p>
+                     </div>
+                     <!--//--> 
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- <div class="container">
+         <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+               <form action="/login" method="POST">
+                  <div class="form-group">
+                     <div class="form-label-group">
+                        <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                        <label for="inputEmail">Email address</label>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="form-label-group">
+                        <input type="hidden" id="redurl" name="redurl" class="hidden" value="<%= redirecturl %>">                            
+                        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">                            
+                        <label for="inputPassword">Password</label>
+                     </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+               </form>
+               <div class="text-center">
+                  <a class="d-block small" href="/forgot_password">Forgot Password?</a>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <!-- Bootstrap core JavaScript-->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+      <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+      <script type="text/javascript">
+         <%
+            if(msg.type == 'Success')
+            {
+            	%>
+         			toastr.success('<%= msg.text_msg %>', 'Success!')
+         		<%
+            }
+            if(msg.type == 'Warning')
+            {
+            	%>
+         			toastr.warning('<%= msg.text_msg %>', 'Warning!')
+         		<%
+            }
+            if(msg.type == 'Error')
+            {
+            	%>
+         			toastr.error('<%= msg.text_msg %>', 'Error!')
+         		<%
+            }
+            %>
+      </script>
+   </body>
+</html>

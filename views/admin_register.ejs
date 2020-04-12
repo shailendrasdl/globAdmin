@@ -1,0 +1,110 @@
+<!-- Header -->
+<% include templates/header.ejs %>
+<!-- Sidebar -->
+<% include templates/sidebar.ejs %>
+<div class="container-fluid">
+	<!-- Breadcrumbs-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="/dashboard">Dashboard</a>
+		</li>
+		<li class="breadcrumb-item active">Admin Role</li>
+	</ol>
+	<div class="row">			
+		<div class="col-md-12 column">				
+			<div class="box box-primary">
+				<div class="box-header">
+					<h3 class="box-title">Create Admin</h3> 
+				</div>							
+				<form action="/register" method="post">
+					<div class="row clearfix mt-4">
+						<div class="col-md-9">
+							<div class="pro-section">
+							<h6 class="user-title">Content</h6>
+							<div class="user-body">
+							<div class="row clearfix">
+								<div class="col-md-6">
+								<div class="form-group">
+									<label>Username</label>
+									<input type="text" name="username" required id="username" class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input type="password" name="password" required id="password" class="form-control">
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="form-group">
+									<label>Email</label>
+									<input type="email" name="email" required id="email" class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Confirm password</label>
+									<input type="password" name="conf_password" required id="conf_password" class="form-control">
+								</div>
+								</div>
+							</div>
+							</div>
+							</div>	
+						</div>
+						<div class="col-md-3">
+							<div class="pro-section">
+							<h6 class="user-title">Admin Permission</h6>
+							<div class="user-body">
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label><input type="checkbox" name="role" value="Admin"> Admin </label> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+									<label><input type="checkbox" name="role" value="Vendor"> Vendor </label> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+									<label><input type="checkbox" name="role" value="Support"> Support</label> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+								</div>
+							</div>
+							</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="box-body">
+						<!-- <div class="row">	
+							<div class="form-group col-md-6">
+								<label>Username</label>
+								<input type="text" name="username" required id="username" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label>Email</label>
+								<input type="email" name="email" required id="email" class="form-control">
+							</div>
+						</div>
+						<div class="row">	
+							<div class="form-group col-md-6">
+								<label>Password</label>
+								<input type="password" name="password" required id="password" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label>Confirm password</label>
+								<input type="password" name="conf_password" required id="conf_password" class="form-control">
+							</div>
+						</div> -->
+						<!-- <div class="row">
+							<div class="form-group col-md-12">
+								<label><input type="checkbox" name="role" value="Admin"> Admin </label> &nbsp;&nbsp;&nbsp;&nbsp;
+								<label><input type="checkbox" name="role" value="Vendor"> Vendor </label> &nbsp;&nbsp;&nbsp;&nbsp;
+								<label><input type="checkbox" name="role" value="Support"> Support</label> &nbsp;&nbsp;&nbsp;&nbsp;
+							</div>
+						</div> -->
+						<div class="row">
+								<div class="col-md-2 form-group">
+									<button class="btn btn-primary btn-sm w-100" type="submit" ><i class="fas fa-fw fa-save"></i> Save</button>
+								</div>
+								<div class="col-md-2 form-group">	
+									<a href="/adminaccess" class="btn btn-warning btn-sm w-100"><i class="fas fa-fw fa-ban"></i> Cancel</a>
+								</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer -->
+<% include templates/footer.ejs %>           
